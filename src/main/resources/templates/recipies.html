@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Przepis</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <div class="col-8" th:text="${recipe.name}"></div>
+                <div class="col-2">lubie to</div>
+            </div>
+            <div class="col-2" th:text="${recipe.name}"></div>
+            </div>
+            <div class="col-8">.col-6<br>Subsequent columns continue along the new line.</div>
+        </div>
+    </div>
+
+</body>
+</html>

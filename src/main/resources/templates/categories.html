@@ -30,11 +30,7 @@
                             <p class="card-text" th:text="${przepis.name}"></p>
                             <a th:href="'/categories/recipies/' + ${przepis.id}" th:text="${przepis.name}" class="btn btn-primary"></a>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
+                                <small class="text-muted">czas przygotowania</small>
                             </div>
                         </div>
                     </div>
