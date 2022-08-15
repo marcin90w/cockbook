@@ -1,6 +1,7 @@
-package com.example.cookbook.Repository;
+package com.example.cookbook.recipesCategory;
 
-import com.example.cookbook.data.Recipe;
+import com.example.cookbook.recipesCategory.recipies.RecipeRepository;
+import com.example.cookbook.recipesCategory.recipies.Recipe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

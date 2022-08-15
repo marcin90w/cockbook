@@ -1,4 +1,4 @@
-package com.example.cookbook.Repository;
+package com.example.cookbook.recipesCategory;
 
 import javax.persistence.*;
 

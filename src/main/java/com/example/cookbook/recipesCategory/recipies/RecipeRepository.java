@@ -1,6 +1,6 @@
-package com.example.cookbook.Repository;
+package com.example.cookbook.recipesCategory.recipies;
 
-import com.example.cookbook.data.Recipe;
+import com.example.cookbook.recipesCategory.RecipeCategory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

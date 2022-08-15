@@ -1,4 +1,4 @@
-package com.example.cookbook.data;
+package com.example.cookbook.recipesCategory.recipies;
 
 import javax.persistence.*;
 import java.time.LocalDate;

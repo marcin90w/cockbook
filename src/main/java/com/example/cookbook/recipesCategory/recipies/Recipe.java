@@ -1,6 +1,6 @@
-package com.example.cookbook.data;
+package com.example.cookbook.recipesCategory.recipies;
 
-import com.example.cookbook.Repository.RecipeCategory;
+import com.example.cookbook.recipesCategory.RecipeCategory;
 
 import javax.persistence.*;
 
@@ -12,6 +12,7 @@ public class Recipe {
     private Long id;
 
     private String name;
+    private String recipeUrl;
 
     @ManyToOne
     private RecipeCategory recipeCategory;
@@ -19,8 +20,9 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, RecipeCategory recipeCategory) {
+    public Recipe(String name, String recipeUrl, RecipeCategory recipeCategory) {
         this.name = name;
+        this.recipeUrl = recipeUrl;
         this.recipeCategory = recipeCategory;
     }
 
@@ -46,5 +48,13 @@ public class Recipe {
 
     public void setRecipeCategory(RecipeCategory recipeCategory) {
         this.recipeCategory = recipeCategory;
+    }
+
+    public String getRecipeUrl() {
+        return recipeUrl;
+    }
+
+    public void setRecipeUrl(String recipeUrl) {
+        this.recipeUrl = recipeUrl;
     }
 }

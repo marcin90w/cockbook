@@ -12,7 +12,7 @@
         <div class="card-header" th:height="10px"></div>
         <div class="card-body">
             <h5 class="card-title" th:text="${category.type}"></h5>
-            <img th:src="@{${category.urlCategory}}">
+            <img th:src="@{${category.urlCategory}}" height="300px" width="auto">
             <p class="card-text" th:text="${category.description}"></p>
             <a href="/" class="btn btn-primary">Wróć do strony głównej</a>
         </div>
@@ -25,10 +25,10 @@
                 <div class="col" th:each="przepis: ${recipies}">
                     <div class="card shadow-sm" style="width: 95%">
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Obrazek</text></svg>><-->
-                        <!-- <img th:src="@{${recipies.urlImg}}" class="card-img-top"><-->
+                        <img th:src="@{${przepis.recipeUrl}}" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-text" th:text="${przepis.name}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <a th:href="'/categories/' + ${przepis.id}" th:text="${przepis.name}" class="btn btn-primary"></a>
+                            <p class="card-text" th:text="${przepis.name}"></p>
+                            <a th:href="'/categories/recipies/' + ${przepis.id}" th:text="${przepis.name}" class="btn btn-primary"></a>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
