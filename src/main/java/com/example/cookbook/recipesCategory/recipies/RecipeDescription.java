@@ -1,5 +1,7 @@
 package com.example.cookbook.recipesCategory.recipies;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -16,6 +18,7 @@ public class RecipeDescription {
 
     private String instruction;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
     @ManyToOne

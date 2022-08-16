@@ -35,22 +35,6 @@
             <div class="col-10">
                 <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="${createRecipe.recipeUrl}" placeholder="www.podaj.link.koniecznie.na.koncu.jpg" required></textarea>
             </div>
-            <div class="col-6">
-                <div class="form-check">
-                    <input class="form-check-input" th:field="*{date}" type="checkbox" th:value="${localDate.now()}" checked>
-                    <label class="form-check-label" th:data="${localDate.now()}">
-
-                    </label>
-                </div>
-                <!--<select class="form-select" style="margin-top: 10px" th:field="*{date}">
-                    <option selected th:value="${localDate.now()}" th:text="${localDate.now()}"></option>
-                    <option value="1">1</option>
-                </select>
-                <select class="form-select" style="margin-top: 10px" th:field="*{id}">
-                    <option selected th:value="${addIdDescription}" th:text="${addIdDescription}"></option>
-                    <option value="1">1</option>
-                </select><-->
-            </div>
         </div>
         <input style="width: 100px" type="submit" value="Dodaj!" />
     </form>

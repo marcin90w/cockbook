@@ -66,6 +66,8 @@ public class RecipeController {
     @PostMapping("/categories/recipies/dodaj")
     public String add(Recipe recipe, RecipeDescription recipeDescription) {
         recipeRepository.save(recipe);
+        recipeDescription.setDate(LocalDate.now());
+        recipeDescription.setRecipe(recipe);
         recipeDescriptionRepository.save(recipeDescription);
         return "home";
     }
