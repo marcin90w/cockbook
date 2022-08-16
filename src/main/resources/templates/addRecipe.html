@@ -8,7 +8,7 @@
 <body>
 <main layout:fragment="content">
 
-    <form method="post" action="#" th:object="${createRecipe}" class="row g-3" style="margin: 7%">
+    <form method="post" action="/categories/recipies/dodaj" th:object="${createRecipe}" class="row g-3" style="margin: 7%">
         <div class="col-md-7">
             <label class="form-label">Wybierz kategorię przepisu</label>
             <select class="form-select" th:field="*{recipeCategory}" required>

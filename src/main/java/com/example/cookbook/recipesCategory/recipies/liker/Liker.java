@@ -3,7 +3,6 @@ package com.example.cookbook.recipesCategory.recipies.liker;
 import com.example.cookbook.recipesCategory.recipies.Recipe;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 public class Liker {
@@ -12,9 +11,7 @@ public class Liker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate dateOfPressLike;
-
-    private boolean isLiked;
+    private int likedRecipe;
 
     @ManyToOne
     private Recipe recipe;
@@ -22,10 +19,20 @@ public class Liker {
     public Liker() {
     }
 
-    public Liker(Recipe recipe) {
-        this.recipe = recipe;
-        dateOfPressLike = LocalDate.now();
-        isLiked = true;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getLikedRecipe() {
+        return likedRecipe;
+    }
+
+    public void setLikedRecipe(int likedRecipe) {
+        this.likedRecipe = likedRecipe;
     }
 
     public Recipe getRecipe() {
@@ -34,13 +41,5 @@ public class Liker {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
-    }
-
-    public boolean isLiked() {
-        return isLiked;
-    }
-
-    public void setLiked(boolean liked) {
-        isLiked = liked;
     }
 }

@@ -2,13 +2,13 @@ package com.example.cookbook.recipesCategory.recipies;
 
 import com.example.cookbook.recipesCategory.RecipeCategory;
 import com.example.cookbook.recipesCategory.RecipeCategoryRepository;
-import com.example.cookbook.recipesCategory.recipies.RecipeDescriptionRepository;
+import com.example.cookbook.recipesCategory.recipies.liker.Liker;
+import com.example.cookbook.recipesCategory.recipies.liker.LikerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,12 +20,14 @@ public class RecipeController {
     RecipeDescriptionRepository recipeDescriptionRepository;
     RecipeRepository recipeRepository;
     RecipeCategoryRepository recipeCategoryRepository;
+    LikerRepository likerRepository;
 
     public RecipeController(RecipeDescriptionRepository recipeDescriptionRepository, RecipeRepository recipeRepository,
-                            RecipeCategoryRepository recipeCategoryRepository) {
+                            RecipeCategoryRepository recipeCategoryRepository, LikerRepository likerRepository) {
         this.recipeDescriptionRepository = recipeDescriptionRepository;
         this.recipeRepository = recipeRepository;
         this.recipeCategoryRepository = recipeCategoryRepository;
+        this.likerRepository = likerRepository;
     }
 
     @GetMapping("/categories/recipies/{id}")
@@ -33,6 +35,9 @@ public class RecipeController {
         Optional<Recipe> recipeOptional = recipeRepository.findById(id);
         model.addAttribute("recipies", recipeRepository.findAll());
         model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
+
+        Liker liker = new Liker();
+        model.addAttribute("createLike", liker);
 
         if (recipeOptional.isPresent()) {
             Recipe recipe = recipeOptional.get();
@@ -45,6 +50,13 @@ public class RecipeController {
             return "error";
         }
     }
+
+//    @PostMapping("/categories/recipies/{id}")
+//    public String recipe(Liker liker) {
+//        liker.setLikedRecipe(1);
+//        likerRepository.save(liker);
+//       return "/categories/recipies/{id}";
+//    }
 
     @GetMapping("/categories/recipies/dodaj")
     public String add(Model model) {

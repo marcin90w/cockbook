@@ -14,7 +14,11 @@
         <p th:text="'Opis: ' + ${opis.description}"></p>
         <p th:text="'Składniki: ' + ${opis.ingredients}"></p>
         <p th:text="'Przygotowanie: ' + ${opis.instruction}"></p>
+        <form method="post" action="/categories/recipies/" th:object="${createLike}">
+            <input style="width: 100px" value="Lubię to!" type="submit">
+        </form>
     </div>
+
 </main>
 </body>
 </html>

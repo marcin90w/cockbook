@@ -1,6 +1,7 @@
 package com.example.cookbook.recipesCategory.recipies;
 
 import com.example.cookbook.recipesCategory.RecipeCategory;
+import com.example.cookbook.recipesCategory.recipies.liker.Liker;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,6 +23,9 @@ public class Recipe {
 
     @OneToMany(mappedBy = "recipe")
     private List<RecipeDescription> recipeDescriptionList;
+
+    @OneToMany(mappedBy = "recipe")
+    private List<Liker> likers;
 
     public Recipe() {
     }
