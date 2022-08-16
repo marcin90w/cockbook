@@ -3,6 +3,7 @@ package com.example.cookbook.recipesCategory.recipies;
 import com.example.cookbook.recipesCategory.RecipeCategory;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Recipe {
@@ -14,15 +15,21 @@ public class Recipe {
     private String name;
     private String recipeUrl;
 
+    private Integer prepareTime;
+
     @ManyToOne
     private RecipeCategory recipeCategory;
+
+    @OneToMany(mappedBy = "recipe")
+    private List<RecipeDescription> recipeDescriptionList;
 
     public Recipe() {
     }
 
-    public Recipe(String name, String recipeUrl, RecipeCategory recipeCategory) {
+    public Recipe(String name, String recipeUrl, Integer prepareTime, RecipeCategory recipeCategory) {
         this.name = name;
         this.recipeUrl = recipeUrl;
+        this.prepareTime = prepareTime;
         this.recipeCategory = recipeCategory;
     }
 
@@ -56,5 +63,32 @@ public class Recipe {
 
     public void setRecipeUrl(String recipeUrl) {
         this.recipeUrl = recipeUrl;
+    }
+
+    public Integer getPrepareTime() {
+        return prepareTime;
+    }
+
+    public void setPrepareTime(Integer prepareTime) {
+        this.prepareTime = prepareTime;
+    }
+
+    public List<RecipeDescription> getRecipeDescriptionList() {
+        return recipeDescriptionList;
+    }
+
+    public void setRecipeDescriptionList(List<RecipeDescription> recipeDescriptionList) {
+        this.recipeDescriptionList = recipeDescriptionList;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", recipeUrl='" + recipeUrl + '\'' +
+                ", prepareTime=" + prepareTime +
+                ", recipeCategory=" + recipeCategory +
+                '}';
     }
 }

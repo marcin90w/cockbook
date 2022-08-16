@@ -7,17 +7,14 @@
 </head>
 <body>
 <main layout:fragment="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <div class="col-8" th:text="${recipe.name}"></div>
-                <div class="col-2">lubie to</div>
-            </div>
-            <div class="col-2" th:text="${recipe.name}"></div>
-            </div>
-            <div class="col-8">.col-6<br>Subsequent columns continue along the new line.</div>
-        </div>
+    <div class="clearfix" th:each="opis: ${descriptions}">
+        <img th:src="@{${recipe.recipeUrl}}" class="col-md-6 float-md-end mb-3 ms-md-3">
+        <h5 th:text="${recipe.name}"></h5>
+        <p th:text="'data dodania wpisu:' + ${opis.getDate()}"></p>
+        <p th:text="'Opis: ' + ${opis.description}"></p>
+        <p th:text="'Składniki: ' + ${opis.ingredients}"></p>
+        <p th:text="'Przygotowanie: ' + ${opis.instruction}"></p>
     </div>
-
+</main>
 </body>
 </html>

@@ -8,15 +8,22 @@
 <body>
 
 <main layout:fragment="content">
-    <div class="card text-center">
-        <div class="card-header" th:height="10px"></div>
-        <div class="card-body">
-            <h5 class="card-title" th:text="${category.type}"></h5>
-            <img th:src="@{${category.urlCategory}}" height="300px" width="auto">
-            <p class="card-text" th:text="${category.description}"></p>
-            <a href="/" class="btn btn-primary">Wróć do strony głównej</a>
+    <div class="d-flex flex-nowrap">
+        <div class="p-2 flex-grow-1">
+            <div class="card text-center" style="width: 90%">
+                <div class="card-header" th:height="10px"></div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${category.type}"></h5>
+                    <img th:src="@{${category.urlCategory}}" height="300px" width="auto">
+                    <p class="card-text" th:text="${category.description}"></p>
+                    <a href="/" class="btn btn-primary">Wróć do strony głównej</a>
+                </div>
+                <div class="card-footer text-muted" th:height="10px"></div>
+            </div>
         </div>
-        <div class="card-footer text-muted" th:height="10px"></div>
+        <div class="order-2 p-2" style="margin-right: 40px">
+            <a href="/categories/recipies/dodaj" class="btn btn-primary">Dodaj swój przepis</a>
+        </div>
     </div>
 
     <div class="album py-5 bg-light">
@@ -30,7 +37,7 @@
                             <p class="card-text" th:text="${przepis.name}"></p>
                             <a th:href="'/categories/recipies/' + ${przepis.id}" th:text="${przepis.name}" class="btn btn-primary"></a>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">czas przygotowania</small>
+                                <small class="text-muted" th:text="'Czas przygotowania: ' + ${przepis.prepareTime} + ' minut'">czas przygotowania</small>
                             </div>
                         </div>
                     </div>
