@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Przepis</title>
+</head>
+<body>
+<main layout:fragment="content" style="margin-left: 15px">
+    <div class="clearfix" th:each="opis: ${recipe}">
+        <img th:src="@{${opis.recipeImgUrl}}" class="col-md-6 float-md-end mb-3 ms-md-3">
+        <h5 th:text="${opis.name}"></h5>
+        <p th:text="'data dodania wpisu:' + ${opis.date}"></p>
+        <p th:text="'Opis: ' + ${opis.description}"></p>
+        <p th:text="'Składniki: ' + ${opis.ingredients}"></p>
+        <p th:text="'Przygotowanie: ' + ${opis.instruction}"></p>
+        <div class="d-flex flex-row mb-3" style="margin-left: 20px" th:width="50" th:height="25">
+            <div style="margin-right: 30px">
+                <a th:href="'/recipe/like/' + ${opis.id}" class="btn btn-primary">Lubię to!</a>
+            </div>
+            <p class="d-inline p-2 text-bg-secondary">Ilość polubień: </p>
+            <p class="d-inline p-2 text-bg-secondary" th:text="${recipe.likedRecipe}"></p>
+            <div style="margin-right: 30px; margin-left: 30px">
+                <a th:href="|/recipe/edit?id=${opis.id}|" class="btn btn-primary">Edytuj przepis</a>
+            </div>
+            <div style="margin-right: 30px; margin-left: 30px">
+                <a th:href="'/recipe/delete/' + ${opis.id}" class="btn btn-primary">Usuń przepis :(</a>
+            </div>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>

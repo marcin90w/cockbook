@@ -1,7 +1,7 @@
 package com.example.cookbook.recipesCategory;
 
-import com.example.cookbook.recipesCategory.recipies.RecipeRepository;
-import com.example.cookbook.recipesCategory.recipies.Recipe;
+import com.example.cookbook.recipesCategory.recipes.RecipeRepository;
+import com.example.cookbook.recipesCategory.recipes.Recipe;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +30,7 @@ public class RecipeCategoryController {
             RecipeCategory recipeCategory = recipeCategoryOptional.get();
 
             List<Recipe> byRecipe = recipeRepository.findByRecipeCategory(recipeCategory);
-            model.addAttribute("recipies", byRecipe);
+            model.addAttribute("recipes", byRecipe);
             model.addAttribute("category", recipeCategory);
             return "categories";
         } else {

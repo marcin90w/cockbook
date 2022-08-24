@@ -7,7 +7,7 @@
     <title>KitchenMania</title>
 </head>
 <body>
-<header th:fragment="header">
+<header th:fragment="header" style="margin-left: 15px">
 <div class="text-bg-light p-3">
     <h1>CookingMania</h1>
 
@@ -19,12 +19,15 @@
             <a class="navbar-brand" href="/">Home</a>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/recipe/add">>Dodaj przepis<</a>
+                    </li>
                     <li class="nav-item" th:each="kategoria: ${recipeCategories}">
                         <a class="nav-link active" aria-current="page" th:href="'/categories/' + ${kategoria.getId()}" th:text="${kategoria.type}"></a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Search recipe" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
@@ -33,12 +36,12 @@
 </div>
 </header>
 
-<main layout:fragment="content">
+<main layout:fragment="content" class="text-bg-light p-3">
 </main>
 
-<footer th:fragment="footer">
+<footer th:fragment="footer" style="margin-left: 15px" class="text-bg-light p-3">
     <p>Wszelkie prawa zastrzeżone</p>
-    <a href="http://www.javny.pl"></a>
+    <a href="https://www.javny.pl">Link do mojej strony</a>
 </footer>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="mwajs" id="001-init">
+
+        <createTable tableName="recipe_category">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="type" type="varchar(100)" />
+            <column name="description" type="varchar(255)" />
+            <column name="img_url" type="varchar(255)" />
+        </createTable>
+
+        <createTable tableName="recipe">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" /></column>
+            <column name="name" type="varchar(100)" />
+            <column name="description" type="varchar(255)" />
+            <column name="date" type="date" />
+            <column name="ingredients" type="varchar(255)" />
+            <column name="instruction" type="varchar(255)" />
+            <column name="liked_recipe" type="int" defaultValueNumeric="0" />
+            <column name="prepare_time" type="int" />
+            <column name="recipe_img_url" type="varchar(255)" />
+            <column name="recipe_category_id" type="bigint">
+                <constraints nullable="false"
+                             foreignKeyName="fk_recipe_recipe_id__recipe_categories_id"
+                             referencedTableName="recipe_category"
+                             referencedColumnNames="id" />
+            </column>
+        </createTable>
+
+
+    </changeSet>
+</databaseChangeLog>

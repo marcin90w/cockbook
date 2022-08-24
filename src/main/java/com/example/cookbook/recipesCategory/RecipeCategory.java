@@ -1,6 +1,6 @@
 package com.example.cookbook.recipesCategory;
 
-import com.example.cookbook.recipesCategory.recipies.Recipe;
+import com.example.cookbook.recipesCategory.recipes.Recipe;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,7 +14,7 @@ public class RecipeCategory {
 
     private String type;
     private String description;
-    private String urlCategory;
+    private String imgUrl;
 
     @OneToMany(mappedBy = "recipeCategory")
     private List<Recipe> recipes;
@@ -51,12 +51,12 @@ public class RecipeCategory {
         this.description = description;
     }
 
-    public String getUrlCategory() {
-        return urlCategory;
+    public String getImgUrl() {
+        return imgUrl;
     }
 
-    public void setUrlCategory(String urlCategory) {
-        this.urlCategory = urlCategory;
+    public void setImgUrl(String urlCategory) {
+        this.imgUrl = imgUrl;
     }
 
     public List<Recipe> getRecipes() {
