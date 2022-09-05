@@ -25,14 +25,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-//        Optional<RecipeCategory> input = recipeCategoryRepository.findFirstByOrderByTitleDesc();
-//        Optional<Recipe> example = recipeRepository.findFirstByOrderByLikedRecipeDesc();
-//        if (example != null) {
-//            model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
-//            model.addAttribute("highestRatedRecipe", example.get());
-//        } else {
-//            return "recipeForm";
-//        }
+
         model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
         model.addAttribute("highestRatedRecipe", recipeRepository.findFirstByOrderByLikedRecipeDesc());
 

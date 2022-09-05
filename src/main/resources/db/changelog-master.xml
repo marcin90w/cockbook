@@ -8,4 +8,6 @@
 
     <include file="001-init.xml" relativeToChangelogFile="true"/>
 
+    <include file="testdata.sql" context="dev" relativeToChangelogFile="true" />
+
 </databaseChangeLog>

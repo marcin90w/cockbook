@@ -89,12 +89,6 @@ public class RecipeController {
         return "recipeAddOrEditSuccess";
     }
 
-//    @PostMapping("/recipe/add")
-//    public String add(Recipe recipe, Model model) {
-//        recipe.setDate(LocalDate.now());
-//        recipeRepository.save(recipe);
-//        model.addAttribute("info", "Dodawanie nowego przepisu zakończone sukcesem");
-//        return "recipeAddOrEditSuccess";
-//    }
+
 
 }
