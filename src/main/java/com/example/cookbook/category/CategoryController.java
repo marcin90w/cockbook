@@ -1,7 +1,9 @@
-package com.example.cookbook.recipesCategory;
+package com.example.cookbook.category;
 
-import com.example.cookbook.recipesCategory.recipes.RecipeRepository;
-import com.example.cookbook.recipesCategory.recipes.Recipe;
+import com.example.cookbook.recipe.RecipeDto;
+import com.example.cookbook.recipe.RecipeRepository;
+import com.example.cookbook.recipe.Recipe;
+import com.example.cookbook.recipe.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,23 +13,23 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class RecipeCategoryController {
+public class CategoryController {
 
-    RecipeCategoryRepository recipeCategoryRepository;
-    RecipeRepository recipeRepository;
+    CategoryService categoryService;
+    RecipeService recipeService;
 
-    public RecipeCategoryController(RecipeCategoryRepository recipeCategoryRepository, RecipeRepository recipeRepository) {
-        this.recipeCategoryRepository = recipeCategoryRepository;
-        this.recipeRepository = recipeRepository;
+    public CategoryController(CategoryService categoryService, RecipeService recipeService) {
+        this.categoryService = categoryService;
+        this.recipeService = recipeService;
     }
 
-    @GetMapping("categories/{id}")
+/*    @GetMapping("categories/{id}")
     public String category(@PathVariable Long id, Model model) {
-        Optional<RecipeCategory> recipeCategoryOptional = recipeCategoryRepository.findById(id);
+        Optional<Category> recipeCategoryOptional = recipeCategoryRepository.findById(id);
         model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
 
         if(recipeCategoryOptional.isPresent()) {
-            RecipeCategory recipeCategory = recipeCategoryOptional.get();
+            Category recipeCategory = recipeCategoryOptional.get();
 
             List<Recipe> byRecipe = recipeRepository.findByRecipeCategory(recipeCategory);
             model.addAttribute("recipes", byRecipe);
@@ -36,5 +38,5 @@ public class RecipeCategoryController {
         } else {
             return "error";
         }
-    }
+    }*/
 }

@@ -1,12 +1,12 @@
-package com.example.cookbook.recipesCategory;
+package com.example.cookbook.category;
 
-import com.example.cookbook.recipesCategory.recipes.Recipe;
+import com.example.cookbook.recipe.Recipe;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class RecipeCategory {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,10 @@ public class RecipeCategory {
     @OneToMany(mappedBy = "recipeCategory")
     private List<Recipe> recipes;
 
-    public RecipeCategory() {
+    public Category() {
     }
 
-    public RecipeCategory(String type, String description) {
+    public Category(String type, String description) {
         this.type = type;
         this.description = description;
     }

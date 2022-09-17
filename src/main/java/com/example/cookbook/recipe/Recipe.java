@@ -1,6 +1,8 @@
-package com.example.cookbook.recipesCategory.recipes;
+package com.example.cookbook.recipe;
 
-import com.example.cookbook.recipesCategory.RecipeCategory;
+import com.example.cookbook.category.Category;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -30,12 +32,18 @@ public class Recipe {
     private LocalDate date;
 
     @ManyToOne
-    private RecipeCategory recipeCategory;
+    @JsonIgnore
+    private Category recipeCategory;
+
+    @JsonProperty
+    String recipeCategory() {
+        return recipeCategory.getType();
+    }
 
     public Recipe() {
     }
 
-    public Recipe(Long id, String name, String recipeImgUrl, Integer prepareTime, String description, String ingredients, String instruction, LocalDate date, RecipeCategory recipeCategory) {
+    public Recipe(Long id, String name, String recipeImgUrl, Integer prepareTime, String description, String ingredients, String instruction, LocalDate date, Category recipeCategory) {
         this.id = id;
         this.name = name;
         this.recipeImgUrl = recipeImgUrl;
@@ -63,11 +71,11 @@ public class Recipe {
         this.name = name;
     }
 
-    public RecipeCategory getRecipeCategory() {
+    public Category getRecipeCategory() {
         return recipeCategory;
     }
 
-    public void setRecipeCategory(RecipeCategory recipeCategory) {
+    public void setRecipeCategory(Category recipeCategory) {
         this.recipeCategory = recipeCategory;
     }
 

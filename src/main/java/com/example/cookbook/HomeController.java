@@ -1,33 +1,30 @@
 package com.example.cookbook;
 
-import com.example.cookbook.recipesCategory.RecipeCategory;
-import com.example.cookbook.recipesCategory.RecipeCategoryRepository;
-import com.example.cookbook.recipesCategory.recipes.Recipe;
-import com.example.cookbook.recipesCategory.recipes.RecipeRepository;
+import com.example.cookbook.category.CategoryRepository;
+import com.example.cookbook.category.CategoryService;
+import com.example.cookbook.recipe.RecipeRepository;
+import com.example.cookbook.recipe.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
-import java.util.Optional;
 
 
 @Controller
 public class HomeController {
 
-    private RecipeCategoryRepository recipeCategoryRepository;
-    RecipeRepository recipeRepository;
+    CategoryService categoryService;
+    RecipeService recipeService;
 
-    public HomeController(RecipeCategoryRepository recipeCategoryRepository, RecipeRepository recipeRepository) {
-        this.recipeCategoryRepository = recipeCategoryRepository;
-        this.recipeRepository = recipeRepository;
+    public HomeController(CategoryService categoryService, RecipeService recipeService) {
+        this.categoryService = categoryService;
+        this.recipeService = recipeService;
     }
 
     @GetMapping("/")
     public String home(Model model) {
 
-        model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
-        model.addAttribute("highestRatedRecipe", recipeRepository.findFirstByOrderByLikedRecipeDesc());
+        model.addAttribute("recipeCategories", categoryService.getCategoryList());
+//        model.addAttribute("highestRatedRecipe", recipeService.findFirstByOrderByLikedRecipeDesc());
 
         return "home";
     }

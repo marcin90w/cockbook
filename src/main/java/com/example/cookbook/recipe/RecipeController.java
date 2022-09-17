@@ -1,71 +1,68 @@
-package com.example.cookbook.recipesCategory.recipes;
+package com.example.cookbook.recipe;
 
-import com.example.cookbook.recipesCategory.RecipeCategoryRepository;
-import org.springframework.stereotype.Controller;
+import com.example.cookbook.category.CategoryRepository;
+import com.example.cookbook.category.CategoryService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 public class RecipeController {
 
-    RecipeRepository recipeRepository;
-    RecipeCategoryRepository recipeCategoryRepository;
+    CategoryService categoryService;
+    RecipeService recipeService;
 
 
-    public RecipeController(RecipeRepository recipeRepository,
-                            RecipeCategoryRepository recipeCategoryRepository) {
-        this.recipeRepository = recipeRepository;
-        this.recipeCategoryRepository = recipeCategoryRepository;
+
+    public RecipeController(RecipeService recipeService, CategoryService categoryService) {
+        this.recipeService = recipeService;
+        this.categoryService = categoryService;
     }
 
-    @GetMapping("/recipe/like/{id}")
+/*    @GetMapping("/recipe/like/{id}")
     public String likeRecipe(@PathVariable Long id) {
-        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
+        Optional<Recipe> recipeOptional = recipeService.findById(id);
         if (recipeOptional.isPresent()) {
             Recipe recipe = recipeOptional.get();
             recipe.addLike();
-            recipeRepository.save(recipe);
+            recipeService.save(recipe);
             return "redirect:/categories/recipes/{id}";
         } else {
             return "error";
         }
-    }
+    }*/
 
-    @GetMapping("/recipe/delete/{id}")
+/*    @GetMapping("/recipe/delete/{id}")
     public String delete(@PathVariable Long id, Model model) {
-        recipeRepository.deleteById(id);
+        recipeService.deleteById(id);
         model.addAttribute("info", "Usunięto przepis o id: " + id + ".");
         return "recipeAddOrEditSuccess";
-    }
+    }*/
 
     @GetMapping("/categories/recipes/{id}")
-    public String recipe(@PathVariable Long id, Model model) {
-        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
-        model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
-
-
-        if (recipeOptional.isPresent()) {
-            Recipe recipe = recipeOptional.get();
-            model.addAttribute("recipe", recipe);
+    String getRecipe(@PathVariable Long id, Model model) {
+        Optional<RecipeDto> recipeDtoOptional = recipeService.getRecipeById(id);
+        if (recipeDtoOptional.isPresent()) {
+            RecipeDto recipeDto = recipeDtoOptional.get();
+            model.addAttribute("recipeDto", recipeDto);
             return "recipes";
         } else {
             return "error";
         }
     }
 
-    @GetMapping("/recipe/edit")
+/*    @GetMapping("/recipe/edit")
     public String edit(@RequestParam Long id, Model model) {
-        recipeRepository.findById(id).ifPresent(recipe -> model.addAttribute("editRecipe", recipe));
+        recipeService.findById(id).ifPresent(recipe -> model.addAttribute("editRecipe", recipe));
         model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
         return "recipeForm";
-    }
+    }*/
 
+/*
     @GetMapping("/recipe/add")
     public String add(Model model) {
         Recipe recipe = new Recipe();
@@ -74,7 +71,9 @@ public class RecipeController {
         model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
         return "recipeForm";
     }
+*/
 
+/*
     @PostMapping("/recipe/edit")
     public String edit(Recipe recipe, Model model) {
         String attribute;
@@ -84,10 +83,11 @@ public class RecipeController {
             attribute = "Edycja przepisu zakończona sukcesem";
         }
         recipe.setDate(LocalDate.now());
-        recipeRepository.save(recipe);
+        recipeService.save(recipe);
         model.addAttribute("info", attribute);
         return "recipeAddOrEditSuccess";
     }
+*/
 
 
 
