@@ -31,15 +31,15 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col" th:each="przepis: ${recipes}">
                     <div class="card shadow-sm" style="width: 95%">
-                        <a th:href="'/categories/recipes/' + ${przepis.id}">
+                        <a th:href="'/categories/recipes/' + ${przepis.getId()}">
                             <img th:src="@{${przepis.recipeImgUrl}}" class="card-img-top">
                         </a>
                         <div class="card-body">
-                            <p class="card-text" th:text="${przepis.name}"></p>
+                            <p class="card-text" th:text="${przepis.getName()}"></p>
                             <div class="d-flex flex-row mb-3" style="margin-left: 20px" th:width="50">
                                 <a th:href="'/categories/recipes/' + ${przepis.id}" th:text="${przepis.name}" class="btn btn-primary"></a>
                                 <p class="d-inline p-2 text-bg-secondary">Ilość polubień: </p>
-                                <p class="d-inline p-2 text-bg-secondary" th:text="${przepis.likedRecipe}"></p>
+                                <p class="d-inline p-2 text-bg-secondary" th:text="${przepis.getLikedRecipe()}"></p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <small class="text-muted" th:text="'Czas przygotowania: ' + ${przepis.prepareTime} + ' minut'">czas przygotowania</small>

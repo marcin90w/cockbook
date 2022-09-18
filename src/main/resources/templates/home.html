@@ -32,7 +32,7 @@
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col" th:each="kategoria: ${recipeCategories}">
+                <div class="col" th:each="kategoria: ${categories}">
                     <div class="card shadow-sm" style="width: 95%">
                         <a th:href="'/categories/' + ${kategoria.getId()}">
                             <img th:src="@{${kategoria.imgUrl}}" class="card-img-top">
@@ -41,7 +41,7 @@
                             <p class="card-text" th:text="${kategoria.description}">example</p>
                             <a th:href="'/categories/' + ${kategoria.getId()}" th:text="${kategoria.type}" class="btn btn-primary"></a>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted" th:text="'ilość przepisów: ' + ${kategoria.recipes.size()}">ilość przepisów</small>
+                                <small class="text-muted" th:text="'ilość przepisów: ' + ${recipeCategories.getRecipesByCategoryId(kategoria.getId()).size()}">ilosc przepisow</small>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,10 @@
 package com.example.cookbook.recipe;
 
+import com.example.cookbook.category.Category;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+
 public class RecipeDto {
 
     private Long id;
@@ -10,6 +15,25 @@ public class RecipeDto {
     private String ingredients;
     private String instruction;
     private int likedRecipe;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
+    private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
     public Long getId() {
         return id;

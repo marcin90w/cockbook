@@ -22,7 +22,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/recipe/add">>Dodaj przepis<</a>
                     </li>
-                    <li class="nav-item" th:each="kategoria: ${recipeCategories}">
+                    <li class="nav-item" th:each="kategoria: ${categories}">
                         <a class="nav-link active" aria-current="page" th:href="'/categories/' + ${kategoria.getId()}" th:text="${kategoria.type}"></a>
                     </li>
                 </ul>
@@ -36,7 +36,7 @@
 </div>
 </header>
 
-<main layout:fragment="content" class="text-bg-light p-3">
+<main layout:fragment="content" style="margin-left: 15px" class="text-bg-light p-3">
 </main>
 
 <footer th:fragment="footer" style="margin-left: 15px" class="text-bg-light p-3">

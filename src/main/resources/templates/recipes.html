@@ -7,7 +7,7 @@
 </head>
 <body>
 <main layout:fragment="content" style="margin-left: 15px">
-    <div class="clearfix" th:each="opis: ${recipe}">
+    <div class="clearfix" th:each="opis: ${recipeDto}">
         <img th:src="@{${opis.recipeImgUrl}}" class="col-md-6 float-md-end mb-3 ms-md-3">
         <h5 th:text="${opis.name}"></h5>
         <p th:text="'data dodania wpisu:' + ${opis.date}"></p>
@@ -19,7 +19,7 @@
                 <a th:href="'/recipe/like/' + ${opis.id}" class="btn btn-primary">Lubię to!</a>
             </div>
             <p class="d-inline p-2 text-bg-secondary">Ilość polubień: </p>
-            <p class="d-inline p-2 text-bg-secondary" th:text="${recipe.likedRecipe}"></p>
+            <p class="d-inline p-2 text-bg-secondary" th:text="${recipeDto.likedRecipe}"></p>
             <div style="margin-right: 30px; margin-left: 30px">
                 <a th:href="|/recipe/edit?id=${opis.id}|" class="btn btn-primary">Edytuj przepis</a>
             </div>

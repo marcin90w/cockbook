@@ -13,8 +13,8 @@
         <input th:field="*{date}" hidden>
         <div class="col-md-7">
             <label class="form-label">Wybierz kategorię przepisu</label>
-            <select class="form-select" th:field="*{recipeCategory}" required>
-                <option th:each="types: ${recipeCategories}" th:value="${types.id}" th:text="${types.type}"></option>
+            <select class="form-select" th:field="*{category}" required>
+                <option th:each="types: ${categories}" th:value="${types.id}" th:text="${types.type}"></option>
             </select>
         </div>
         <div class="col-md-3">

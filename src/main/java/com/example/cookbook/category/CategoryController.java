@@ -1,16 +1,10 @@
 package com.example.cookbook.category;
 
-import com.example.cookbook.recipe.RecipeDto;
-import com.example.cookbook.recipe.RecipeRepository;
-import com.example.cookbook.recipe.Recipe;
 import com.example.cookbook.recipe.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class CategoryController {
@@ -23,20 +17,17 @@ public class CategoryController {
         this.recipeService = recipeService;
     }
 
-/*    @GetMapping("categories/{id}")
+    @GetMapping("categories/{id}")
     public String category(@PathVariable Long id, Model model) {
-        Optional<Category> recipeCategoryOptional = recipeCategoryRepository.findById(id);
-        model.addAttribute("recipeCategories", recipeCategoryRepository.findAll());
+        CategoryDto recipeCategory = categoryService.getCategoryInfo(id);
+        model.addAttribute("categories", categoryService.getCategoryList()); // model wykorzystywany przez layout.html
 
-        if(recipeCategoryOptional.isPresent()) {
-            Category recipeCategory = recipeCategoryOptional.get();
-
-            List<Recipe> byRecipe = recipeRepository.findByRecipeCategory(recipeCategory);
-            model.addAttribute("recipes", byRecipe);
+        if(recipeCategory != null) {
+            model.addAttribute("recipes", categoryService.getRecipesByCategoryId(id));
             model.addAttribute("category", recipeCategory);
             return "categories";
         } else {
             return "error";
         }
-    }*/
+    }
 }

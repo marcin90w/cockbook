@@ -33,17 +33,18 @@ public class Recipe {
 
     @ManyToOne
     @JsonIgnore
-    private Category recipeCategory;
+    private Category category;
 
     @JsonProperty
-    String recipeCategory() {
-        return recipeCategory.getType();
+    String category() {
+        return category.getType();
     }
 
     public Recipe() {
+        date = LocalDate.now();
     }
 
-    public Recipe(Long id, String name, String recipeImgUrl, Integer prepareTime, String description, String ingredients, String instruction, LocalDate date, Category recipeCategory) {
+    public Recipe(Long id, String name, String recipeImgUrl, Integer prepareTime, String description, String ingredients, String instruction, LocalDate date, Category category) {
         this.id = id;
         this.name = name;
         this.recipeImgUrl = recipeImgUrl;
@@ -52,7 +53,7 @@ public class Recipe {
         this.ingredients = ingredients;
         this.instruction = instruction;
         this.date = date;
-        this.recipeCategory = recipeCategory;
+        this.category = category;
     }
 
     public Long getId() {
@@ -71,12 +72,12 @@ public class Recipe {
         this.name = name;
     }
 
-    public Category getRecipeCategory() {
-        return recipeCategory;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setRecipeCategory(Category recipeCategory) {
-        this.recipeCategory = recipeCategory;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getRecipeImgUrl() {
@@ -142,7 +143,7 @@ public class Recipe {
                 ", name='" + name + '\'' +
                 ", recipeUrl='" + recipeImgUrl + '\'' +
                 ", prepareTime=" + prepareTime +
-                ", recipeCategory=" + recipeCategory +
+                ", recipeCategory=" + category +
                 '}';
     }
 

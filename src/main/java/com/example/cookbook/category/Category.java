@@ -16,15 +16,17 @@ public class Category {
     private String description;
     private String imgUrl;
 
-    @OneToMany(mappedBy = "recipeCategory")
+    @OneToMany(mappedBy = "category")
     private List<Recipe> recipes;
 
     public Category() {
     }
 
-    public Category(String type, String description) {
+    public Category(Long id, String type, String description, String imgUrl) {
+        this.id = id;
         this.type = type;
         this.description = description;
+        this.imgUrl = imgUrl;
     }
 
     public void setId(Long id) {

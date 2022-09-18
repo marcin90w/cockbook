@@ -1,4 +1,4 @@
-INSERT INTO RECIPE_CATEGORY (TYPE, DESCRIPTION, IMG_URL)
+INSERT INTO CATEGORY (TYPE, DESCRIPTION, IMG_URL)
     VALUES
         ('Śniadania', 'Pożywne, sycące przepisy, które sprawią, że twój poranek będzie pełen energi', 'https://resize.indiatvnews.com/en/resize/newbucket/730_-/2022/05/breakfast-1651819066.jpg'),
         ('Obiady domowe', 'Tego możesz nauczyć się od Babci, ale także i z tej strony', 'https://damusia.pl/wp-content/uploads/2019/08/11-16-e1566887739380.jpg'),
@@ -7,7 +7,7 @@ INSERT INTO RECIPE_CATEGORY (TYPE, DESCRIPTION, IMG_URL)
         ('Przekąski', 'Nie zajadaj ich przed głównymi posiłkami! :)', 'https://smakowity.pl/storage/3642/conversions/przekaska-z-biszkoptow-large.jpg'),
         ('Chleby', 'Wiejski chlebek z masełkiem? A może pajda chleba z kiełbasą?', 'https://staticsmaker.iplsc.com/smaker_production_2022_02_17/02b863261ad7c97aaef6840a076a97c7-recipe_main.jpg');
 
-INSERT INTO RECIPE (NAME, PREPARE_TIME, RECIPE_IMG_URL ,RECIPE_CATEGORY_ID, DESCRIPTION, INGREDIENTS, INSTRUCTION, LIKED_RECIPE, DATE)
+INSERT INTO RECIPE (NAME, PREPARE_TIME, RECIPE_IMG_URL ,CATEGORY_ID, DESCRIPTION, INGREDIENTS, INSTRUCTION, LIKED_RECIPE, DATE)
     VALUES
         ('Omlet z bekonem', 20, 'https://i.wpimg.pl/O/644x429/d.wpimg.pl/1109915733--1015584743/omlet.jpg', 1, 'Proste danie do 6 zł za posiłek jednoosobowy',
          '4 Jajka, 50g Bekonu, garść szczypiorku, 100g mąki', 'przesmaź boczek na patelni, później wymieszaj jajka z mąką, dosól i dopieprz, mieszaj dodając przesmażony boczek,
