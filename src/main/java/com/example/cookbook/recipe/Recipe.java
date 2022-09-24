@@ -146,8 +146,4 @@ public class Recipe {
                 ", recipeCategory=" + category +
                 '}';
     }
-
-    public void addLike() {
-        likedRecipe += 1;
-    }
 }

@@ -21,7 +21,7 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("categories", categoryService.getCategoryList());
         model.addAttribute("recipeCategories", categoryService); // aby pobrac informacje o ilosciach przepisow w tablicy kategorii na home.html
-//        model.addAttribute("highestRatedRecipe", recipeService.findFirstByOrderByLikedRecipeDesc());
+        model.addAttribute("highestRatedRecipe", recipeService.findHighLikedRecipe());
         return "home";
     }
 }

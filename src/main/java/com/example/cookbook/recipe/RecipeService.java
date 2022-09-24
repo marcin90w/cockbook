@@ -2,9 +2,6 @@ package com.example.cookbook.recipe;
 
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.Optional;
-
 @Service
 public class RecipeService {
     private RecipeRepository recipeRepository;
@@ -22,8 +19,9 @@ public class RecipeService {
 
     public void addLike(Long id) {
         RecipeDto recipeDto = getRecipeById(id);
-        Recipe recipe = recipeRepository.findById(recipeDto.getId()).get(); //czy nie jest zla praktyka od razu pominac ta linie i odwolac sie do recipe.liked?
+        Recipe recipe = recipeRepository.findById(recipeDto.getId()).get();
         recipe.setLikedRecipe(recipe.getLikedRecipe() + 1);
+        recipeRepository.save(recipe);
     }
 
     public void deleteRecipe(Long id) {
@@ -54,7 +52,15 @@ public class RecipeService {
         recipeRepository.save(recipe);
     }
 
-    public int recipesListSize() {
-        return recipeRepository.findAll().size();
+    public Long recipesListSize() {
+        return recipeRepository.count();
+    }
+
+    public RecipeDto findHighLikedRecipe() {
+        if (recipeRepository.count() > 0) {
+            return recipeDtoMapper.map(recipeRepository.findFirstByOrderByLikedRecipeDesc());
+        } else {
+            return new RecipeDto();
+        }
     }
 }

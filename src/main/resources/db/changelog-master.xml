@@ -10,4 +10,5 @@
 
     <include file="testdata.sql" context="dev" relativeToChangelogFile="true" />
 
+    <include file="prod002-init.xml" context="prod" relativeToChangelogFile="true" />
 </databaseChangeLog>

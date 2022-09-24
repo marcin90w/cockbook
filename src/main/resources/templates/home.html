@@ -8,7 +8,7 @@
 <body>
 <main layout:fragment="content">
 
-<!--<div class="d-flex justify-content-center" th:if="${highestRatedRecipe}">
+<div class="d-flex justify-content-center" th:if="${highestRatedRecipe}">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -27,8 +27,18 @@
                 </div>
             </div>
         </div>
+    <div class="card mb-3" style="max-width: 600px;">
+        <div class="row g-0">
+            <div class="card-body">
+                <h5 class="card-title" th:text="'Przejdź do formularza zakładania nowego użytkownika'">Card title</h5>
+                <p class="card-text">Chcesz być na bieżaco ze wszystkimi nowymi przepisami? Chcesz zaskakiwać znojomych ciekawymi daniami?
+                 Już dziś załóż konto a później zasubskrybuj nasza newsletter</p>
+                <a href="/user-form/add" th:text="'Załóż konto'" class="btn btn-primary"></a>
+            </div>
+        </div>
+    </div>
 </div>
--->
+
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">

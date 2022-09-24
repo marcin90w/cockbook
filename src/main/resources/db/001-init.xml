@@ -35,6 +35,18 @@
             </column>
         </createTable>
 
+        <createTable tableName="user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" /></column>
+            <column name="login" type="varchar(35)">
+                <constraints nullable="false" /></column>
+            <column name="password" type="varchar(16)">
+                <constraints nullable="false" /></column>
+            <column name="subscriber" type="boolean" />
+            <column name="first_name" type="varchar(20)" />
+            <column name="last_name" type="varchar(20)" />
+            <column name="birthdate" type="date" />
+        </createTable>
 
     </changeSet>
 </databaseChangeLog>

@@ -5,8 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @Controller
 public class RecipeController {
 
@@ -22,7 +20,7 @@ public class RecipeController {
 
     @GetMapping("/recipe/like/{id}")
     public String likeRecipe(@PathVariable Long id) {
-        if (id > recipeService.recipesListSize()) {
+        if (id <= recipeService.recipesListSize()) {
             recipeService.addLike(id);
             return "redirect:/categories/recipes/{id}";
         } else {
@@ -34,7 +32,7 @@ public class RecipeController {
     public String delete(@PathVariable Long id, Model model) {
         recipeService.deleteRecipe(id);
         model.addAttribute("info", "Usunięto przepis o id: " + id + ".");
-        return "recipeAddOrEditSuccess";
+        return "addOrEditSuccess";
     }
 
     @GetMapping("/categories/recipes/{id}")
@@ -76,7 +74,7 @@ public class RecipeController {
     public String edit(RecipeDto recipeDto, Model model) {
         String attribute = recipeService.setDataInRecipe(recipeDto);
         model.addAttribute("info", attribute);
-        return "recipeAddOrEditSuccess";
+        return "addOrEditSuccess";
     }
 
 
