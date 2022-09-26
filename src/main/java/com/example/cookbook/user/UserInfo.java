@@ -9,12 +9,12 @@ import javax.persistence.Id;
 import java.time.LocalDate;
 
 @Entity
-public class User {
+public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String login;
+    private String loginName;
     private String password;
     private Boolean subscriber;
     private String firstName;
@@ -23,12 +23,21 @@ public class User {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
 
-    public User() {
+    public UserInfo() {
     }
 
-    public User(String login, String password) {
-        this.login = login;
+    public UserInfo(String login, String password) {
+        this.loginName = login;
         this.password = password;
+    }
+
+    public UserInfo(String loginName, String password, String firstName, String lastName, LocalDate birthdate) {
+        this.loginName = loginName;
+        this.password = password;
+        this.subscriber = false;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
     }
 
     public String getFirstName() {
@@ -63,12 +72,12 @@ public class User {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLoginName(String login) {
+        this.loginName = login;
     }
 
     public String getPassword() {

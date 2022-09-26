@@ -35,11 +35,6 @@ public class Recipe {
     @JsonIgnore
     private Category category;
 
-    @JsonProperty
-    String category() {
-        return category.getType();
-    }
-
     public Recipe() {
         date = LocalDate.now();
     }
@@ -54,6 +49,11 @@ public class Recipe {
         this.instruction = instruction;
         this.date = date;
         this.category = category;
+    }
+
+    @JsonProperty
+    String category() {
+        return category.getType();
     }
 
     public Long getId() {

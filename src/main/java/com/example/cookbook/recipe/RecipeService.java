@@ -28,20 +28,20 @@ public class RecipeService {
         recipeRepository.deleteById(id);
     }
 
-    public String setDataInRecipe(RecipeDto recipeDto) {
+    public String updateOrSaveRecipe(RecipeDto recipeDto) {
         String attribute;
         if (recipeDto.getDate() == null) {
-            saveRecipe(recipeDto, new Recipe());
+            setDataForRecipe(recipeDto, new Recipe());
             attribute = "Dodawanie nowego przepisu zakończone sukcesem";
         } else {
             Recipe recipe = recipeRepository.findById(recipeDto.getId()).get();
-            saveRecipe(recipeDto, recipe);
+            setDataForRecipe(recipeDto, recipe);
             attribute = "Edycja przepisu zakończona sukcesem";
         }
         return attribute;
     }
 
-    private void saveRecipe(RecipeDto recipeDto, Recipe recipe) {
+    private void setDataForRecipe(RecipeDto recipeDto, Recipe recipe) {
         recipe.setCategory(recipeDto.getCategory());
         recipe.setDescription(recipeDto.getDescription());
         recipe.setRecipeImgUrl(recipeDto.getRecipeImgUrl());

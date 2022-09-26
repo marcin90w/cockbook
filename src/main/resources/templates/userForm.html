@@ -11,7 +11,7 @@
         <input th:field="*{id}" hidden>
         <div class="col-md-3">
             <label class="form-label">Podaj Login</label>
-            <input type="email" class="form-control" th:field="*{login}" placeholder="example@example.com" required>
+            <input type="email" class="form-control" th:field="*{loginName}" placeholder="example@example.com" required>
         </div>
         <div class="col-md-3">
             <label class="form-label">Podaj Hasło</label>
@@ -22,15 +22,16 @@
                 <textarea class="form-control" th:field="*{firstName}" placeholder="Podaj imię"></textarea>
             </div>
             <div class="col-md-3">
-                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{lastName}" placeholder="Podaj nazwisko"></textarea>
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{lastName}"
+                          placeholder="Podaj nazwisko"></textarea>
             </div>
             <div class="col-md-3">
                 <label class="form-label">Podaj datę urodzenia</label>
                 <input type="date" class="form-control" th:field="*{birthdate}">
             </div>
         </div>
-        <input style="width: 100px" type="submit" th:if="*{id == null}"   value="Dodaj!" />
-        <input style="width: 100px" type="submit" th:unless="*{id == null}"   value="Edytuj!" />
+        <input style="width: 100px" type="submit" th:if="*{id == null}" value="Dodaj!"/>
+        <input style="width: 100px" type="submit" th:unless="*{id == null}" value="Edytuj!"/>
     </form>
 
 </main>

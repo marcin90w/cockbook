@@ -8,8 +8,8 @@
 <body>
 <main layout:fragment="content">
 
-<div class="d-flex justify-content-center" th:if="${highestRatedRecipe}">
-        <div class="card mb-3" style="max-width: 540px;">
+    <div class="d-flex justify-content-center">
+        <div class="card mb-3" style="max-width: 540px;" th:if="${highestRatedRecipe}">
             <div class="row g-0">
                 <div class="col-md-4">
                     <a th:href="'/categories/recipes/' + ${highestRatedRecipe.id}">
@@ -18,26 +18,38 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title" th:text="'Najlepiej oceniony przepis: '+ ${highestRatedRecipe.name}">Card title</h5>
+                        <h5 class="card-title" th:text="'Najlepiej oceniony przepis: '+ ${highestRatedRecipe.name}">Card
+                            title</h5>
                         <p class="card-text" th:text="${highestRatedRecipe.description}">description</p>
                         <p class="card-text" th:text="'ilość polubień: ' + ${highestRatedRecipe.likedRecipe}">likers</p>
-                        <a th:href="'/categories/recipes/' + ${highestRatedRecipe.id}" th:text="${highestRatedRecipe.name}" class="btn btn-primary"></a>
+                        <a th:href="'/categories/recipes/' + ${highestRatedRecipe.id}"
+                           th:text="${highestRatedRecipe.name}" class="btn btn-primary"></a>
 
                     </div>
                 </div>
             </div>
         </div>
-    <div class="card mb-3" style="max-width: 600px;">
-        <div class="row g-0">
-            <div class="card-body">
-                <h5 class="card-title" th:text="'Przejdź do formularza zakładania nowego użytkownika'">Card title</h5>
-                <p class="card-text">Chcesz być na bieżaco ze wszystkimi nowymi przepisami? Chcesz zaskakiwać znojomych ciekawymi daniami?
-                 Już dziś załóż konto a później zasubskrybuj nasza newsletter</p>
-                <a href="/user-form/add" th:text="'Załóż konto'" class="btn btn-primary"></a>
+        <div class="card mb-3" style="max-width: 600px;">
+            <div class="row g-0">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Przejdź do formularza zakładania nowego użytkownika'">Card
+                        title</h5>
+                    <p class="card-text">Chcesz być na bieżaco ze wszystkimi nowymi przepisami? Chcesz zaskakiwać
+                        znojomych ciekawymi daniami?
+                        Już dziś załóż konto a później zasubskrybuj nasza newsletter</p>
+                    <a href="/user-form/add" th:text="'Załóż konto'" class="btn btn-primary"></a>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 300px;">
+            <div class="row g-0">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Zaloguj lub zasubskrybuj'">Card title</h5>
+                    <a href="/login-or-subscribe" th:text="'Verify'" class="btn btn-primary"></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <div class="album py-5 bg-light">
         <div class="container">
@@ -49,9 +61,12 @@
                         </a>
                         <div class="card-body">
                             <p class="card-text" th:text="${kategoria.description}">example</p>
-                            <a th:href="'/categories/' + ${kategoria.getId()}" th:text="${kategoria.type}" class="btn btn-primary"></a>
+                            <a th:href="'/categories/' + ${kategoria.getId()}" th:text="${kategoria.type}"
+                               class="btn btn-primary"></a>
                             <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted" th:text="'ilość przepisów: ' + ${recipeCategories.getRecipesByCategoryId(kategoria.getId()).size()}">ilosc przepisow</small>
+                                <small class="text-muted" th:text="'ilość przepisów: ' +
+                                       ${recipeCategories.getRecipesByCategoryId(kategoria.getId()).size()}">
+                                    ilosc przepisow</small>
                             </div>
                         </div>
                     </div>
@@ -61,5 +76,5 @@
     </div>
 </main>
 
-</body>>
+</body>
 </html>

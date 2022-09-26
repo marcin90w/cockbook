@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RecipeByCategoryMapperDto {
-    RecipeByCategoryDto map(Recipe recipe){
+    RecipeByCategoryDto map(Recipe recipe) {
         RecipeByCategoryDto dto = new RecipeByCategoryDto();
         dto.setId(recipe.getId());
         dto.setName(recipe.getName());
@@ -14,5 +14,4 @@ public class RecipeByCategoryMapperDto {
         dto.setPrepareTime(recipe.getPrepareTime());
         return dto;
     }
-
 }

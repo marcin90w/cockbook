@@ -20,7 +20,8 @@ public class CategoryService {
     }
 
     public List<CategoryDto> getCategoryList() {
-        return categoryRepository.findAll()
+        return categoryRepository
+                .findAll()
                 .stream()
                 .map(this::toDto)
                 .collect(Collectors.toList());
@@ -34,8 +35,7 @@ public class CategoryService {
         return categoryRepository.findById(categoryId)
                 .map(Category::getRecipes)
                 .orElse(Collections.emptyList())
-                .stream()
-                .map(recipeByCategoryMapperDto::map)
+                .stream().map(recipeByCategoryMapperDto::map)
                 .toList();
     }
 

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RecipeDtoMapper {
-    RecipeDto map(Recipe recipe) {
+    public RecipeDto map(Recipe recipe) {
         RecipeDto dto = new RecipeDto();
         dto.setId(recipe.getId());
         dto.setRecipeImgUrl(recipe.getRecipeImgUrl());

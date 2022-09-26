@@ -26,20 +26,24 @@
         </div>
         <div>
             <div class="col-10">
-                <textarea class="form-control" th:field="*{description}" placeholder="Wpisz kilka słów o przepisie" required></textarea>
+                <textarea class="form-control" th:field="*{description}" placeholder="Wpisz kilka słów o przepisie"
+                          required></textarea>
             </div>
             <div class="col-10">
-                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{ingredients}" placeholder="Wpisz składniki" required></textarea>
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{ingredients}"
+                          placeholder="Wpisz składniki" required></textarea>
             </div>
             <div class="col-10">
-                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{instruction}" placeholder="Instrukcja krok po kroku" required></textarea>
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{instruction}"
+                          placeholder="Instrukcja krok po kroku" required></textarea>
             </div>
             <div class="col-10">
-                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{recipeImgUrl}" placeholder="www.podaj.link.koniecznie.na.koncu.jpg" required></textarea>
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{recipeImgUrl}"
+                          placeholder="www.podaj.link.koniecznie.na.koncu.jpg" required></textarea>
             </div>
         </div>
-        <input style="width: 100px" type="submit" th:if="*{description == null}"   value="Dodaj!" />
-        <input style="width: 100px" type="submit" th:unless="*{description == null}"   value="Edytuj!" />
+        <input style="width: 100px" type="submit" th:if="*{description == null}" value="Dodaj!"/>
+        <input style="width: 100px" type="submit" th:unless="*{description == null}" value="Edytuj!"/>
     </form>
 
 </main>

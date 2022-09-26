@@ -23,3 +23,9 @@ wrzuć na rozgrzaną patelnię a na końcu posyp szczypiorkiem', 1, '2022-08-01'
         ('Marcheweczki', 10, 'https://ewawachowicz.pl/przepisy/1340-1.jpg', 5, 'example', 'ingredients', 'instruction', 0, '2022-08-01'),
         ('Chleb żytni na zakwasie', 120, 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/76561bdc-1211-4f8b-8b48-259827352375/Derivates/43f0768c-7844-4d0c-a4e4-71411b09de32.jpg', 6, 'example', 'ingredients', 'instruction', 0, '2022-08-01'),
         ('Chleb wiejski', 120, 'https://www.canalpluskuchnia.pl/wideo/35755-kuchniafrancuska2/odc.6_MiracleBoule.jpg', 6, 'example', 'ingredients', 'instruction', 0, '2022-08-01');
+
+INSERT INTO USER_INFO (LOGIN_NAME, PASSWORD, SUBSCRIBER, FIRST_NAME, LAST_NAME, BIRTHDATE)
+    VALUES
+        ('test1@test.pl', 'test123', false, 'test1', 'tester1', '2000-08-01'),
+        ('test2@test.pl', 'test234', false, 'test2', 'tester2', '2000-09-01'),
+        ('test3@test.pl', 'test345', false, 'test3', 'tester3', '2000-10-01');

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 public class UserDto {
 
     private Long id;
-    private String login;
+    private String loginName;
     private String password;
     private Boolean subscriber;
     private String firstName;
@@ -24,12 +24,12 @@ public class UserDto {
         this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getLoginName() {
+        return loginName;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLoginName(String loginName) {
+        this.loginName = loginName;
     }
 
     public String getPassword() {
@@ -71,4 +71,5 @@ public class UserDto {
     public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
     }
+
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByLoginAndPassword(String login, String password);
+public interface UserRepository extends JpaRepository<UserInfo, Long> {
+    Optional<UserInfo> findByLoginNameAndPassword(String login, String password);
 }
