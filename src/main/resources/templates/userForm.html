@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>KitchenMania</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <form method="post" action="/user-form/edit" th:object="${editUser}" class="row g-3" style="margin: 2%">
+        <input th:field="*{id}" hidden>
+        <div class="col-md-3">
+            <label class="form-label">Podaj Login</label>
+            <input type="email" class="form-control" th:field="*{loginName}" placeholder="example@example.com" required>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Podaj Hasło</label>
+            <input type="password" class="form-control" th:field="*{password}" placeholder="Password555" required>
+        </div>
+        <div>
+            <div class="col-md-3">
+                <textarea class="form-control" th:field="*{firstName}" placeholder="Podaj imię"></textarea>
+            </div>
+            <div class="col-md-3">
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{lastName}"
+                          placeholder="Podaj nazwisko"></textarea>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Podaj datę urodzenia</label>
+                <input type="date" class="form-control" th:field="*{birthdate}">
+            </div>
+        </div>
+        <input style="width: 100px" type="submit" th:if="*{id == null}" value="Dodaj!"/>
+        <input style="width: 100px" type="submit" th:unless="*{id == null}" value="Edytuj!"/>
+    </form>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="mwajs" id="prod002-init">
+        <insert tableName="category">
+            <column name="type" value="test"></column>
+            <column name="description" value="test"></column>
+            <column name="img_url" value="test"></column>
+        </insert>
+        <insert tableName="recipe">
+            <column name="name" value="test"></column>
+            <column name="description" value="test"></column>
+            <column name="liked_recipe" value="0"></column>
+            <column name="instruction" value="test"></column>
+            <column name="ingredients" value="test"></column>
+            <column name="recipe_img_url" value="test"></column>
+            <column name="category_id" value="1"></column>
+            <column name="prepare_time" value="1"></column>
+            <column name="date" value="2022-09-24"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

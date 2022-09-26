@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>KitchenMania</title>
+</head>
+<body>
+<main layout:fragment="content">
+
+    <form method="post" action="/recipe/edit" th:object="${editRecipe}" class="row g-3" style="margin: 7%">
+        <input th:field="*{id}" hidden>
+        <input th:field="*{date}" hidden>
+        <div class="col-md-7">
+            <label class="form-label">Wybierz kategorię przepisu</label>
+            <select class="form-select" th:field="*{category}" required>
+                <option th:each="types: ${categories}" th:value="${types.id}" th:text="${types.type}"></option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Czas przygotowania - podaj w minutach</label>
+            <input type="number" class="form-control" th:field="*{prepareTime}" required>
+        </div>
+        <div class="col-10" style="margin-right: 20%">
+            <input class="form-control" type="text" placeholder="Nazwij przepis" th:field="*{name}" required>
+        </div>
+        <div>
+            <div class="col-10">
+                <textarea class="form-control" th:field="*{description}" placeholder="Wpisz kilka słów o przepisie"
+                          required></textarea>
+            </div>
+            <div class="col-10">
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{ingredients}"
+                          placeholder="Wpisz składniki" required></textarea>
+            </div>
+            <div class="col-10">
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{instruction}"
+                          placeholder="Instrukcja krok po kroku" required></textarea>
+            </div>
+            <div class="col-10">
+                <textarea style="height: 100px; margin-top: 10px" class="form-control" th:field="*{recipeImgUrl}"
+                          placeholder="www.podaj.link.koniecznie.na.koncu.jpg" required></textarea>
+            </div>
+        </div>
+        <input style="width: 100px" type="submit" th:if="*{description == null}" value="Dodaj!"/>
+        <input style="width: 100px" type="submit" th:unless="*{description == null}" value="Edytuj!"/>
+    </form>
+
+</main>
+</body>
+</html>

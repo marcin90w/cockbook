@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>KitchenMania</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div class="d-flex justify-content-center">
+        <form method="post" action="/login-or-subscribe" th:object="${validateLogin}" class="row g-3"
+              style="margin: 4%">
+            <div class="card mb-3" style="max-width: 540px;">
+                <input th:field="*{id}" hidden>
+                <div class="col-md-6">
+                    <label class="form-label">Podaj Login</label>
+                    <input type="email" style="max-width: 450px;" class="form-control" th:field="*{loginName}"
+                           placeholder="example@example.com" required>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Podaj Hasło</label>
+                    <input type="password" style="max-width: 450px;" class="form-control" th:field="*{password}"
+                           placeholder="Password555" required>
+                </div>
+            </div>
+            <div class="card mb-3" style="max-width: 200px;">
+                <input class="btn btn-primary" type="submit" name="action" th:value="${subscribe.toString()}">
+                <input class="btn btn-primary" type="submit" name="action" th:value="${login.toString()}">
+            </div>
+        </form>
+
+    </div>
+    <div class="d-flex justify-content-center" style="max-width: 500px; margin-left: 10%">
+        <table class="table table-dark table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Lista użytkowników</th>
+            </tr>
+            <tr th:each="users: ${usersList}">
+                <td th:text="*{users.id}"></td>
+                <td th:text="*{users.login}"></td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</main>
+</body>
+</html>
